@@ -9,9 +9,8 @@ const packages = [
 
   let filteredPackages = packages
   
-  function genHtml(package) {
-    let packageHtml = ``
-    packageHtml += `
+  function genPackageHtml(package) {
+    return `
     <div class="card">
     <div class="card-body">
     <h2 class="card-title">To: ${package.to}</h2>
@@ -32,17 +31,14 @@ const packages = [
     </div>
     </div>
     `
-    
-    return packageHtml
   }
   
   function draw() {
     let packagesHtml = ""
     for (let i = 0; i < filteredPackages.length; i++) {
-      packagesHtml += genHtml(filteredPackages[i])
+      packagesHtml += genPackageHtml(filteredPackages[i])
     }
     document.getElementById("package-cards").innerHTML = packagesHtml
-    
   }
   
   function reset() {
